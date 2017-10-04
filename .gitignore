@@ -19,8 +19,8 @@
 # .idea/uiDesigner.xml
 
 # Gradle:
-# .idea/gradle.xml
-# .idea/libraries
+ .idea/gradle.xml
+ .idea/libraries
 
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
@@ -44,3 +44,10 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+/.gradle/
+*/.gradle/
+/gradle/
+*/gradle/
+*/out
+/build/
+*/build/
