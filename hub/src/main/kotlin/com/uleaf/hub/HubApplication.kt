@@ -1,20 +1,23 @@
 package com.uleaf.hub
 
+import com.uleaf.hub.config.ServerConfig
 import com.uleaf.hub.front.FrontEndService
+import com.uleaf.hub.helper.AutowiredHelper
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.data.redis.core.StringRedisTemplate
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 
 @SpringBootApplication
+@EnableConfigurationProperties(ServerConfig::class)
 class HubApplication : InitializingBean {
     @Autowired
-    val template: StringRedisTemplate? = null
+    val autowiredHelper: AutowiredHelper? = null
 
     override fun afterPropertiesSet() {
-        FrontEndService.boot(9999, template!!)
+        FrontEndService.boot(autowiredHelper!!)
     }
 }
 

@@ -112,7 +112,7 @@ class CmdHandler(private val stringRedisTemplate: StringRedisTemplate) : Channel
                 val msgDetailKey = "msg_detail_$messageId"
                 val from = opsForHash.get(msgDetailKey, "from")
                 stringRedisTemplate.delete(msgDetailKey)
-                val fromCtx = ClientChannelHelper.client2ChannelMap[from]
+                val fromCtx = ClientChannelHelper.client2ChannelMap[from!!]
                 sendMsg = MqttPubAckMessage(MqttFixedHeader(MqttMessageType.PUBACK, false, mqttQoS, false, 0)
                         , MqttMessageIdVariableHeader.from(mqttPubAckMessage.variableHeader().messageId()))
                 fromCtx?.writeAndFlush(sendMsg)

@@ -1,3 +1,8 @@
 spring:
   redis:
     host: localhost
+
+conf:
+  server:
+    port: 9999
+    ssl_flag: false
